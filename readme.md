@@ -1,6 +1,6 @@
 # namesake &middot; [![Version](https://img.shields.io/npm/v/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![License](https://img.shields.io/npm/l/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![Travis CI](https://img.shields.io/travis/citycide/namesake.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/citycide/namesake) [![LightScript](https://img.shields.io/badge/written%20in-lightscript-00a99d.svg)](http://www.lightscript.org)
 
-> Find available & relevant npm package names from the command line.
+> Find available & relevant npm package names for your project.
 
 Supposedly:
 
@@ -31,6 +31,8 @@ npm i namesake
 const namesake = require('namesake')
 
 namesake('car').then(names => {
+  // `names` is an Array of available package names
+  // they're all guaranteed to be available on npm at time of use
   console.log(names)
 })
 
