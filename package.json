@@ -43,7 +43,7 @@
     "npm-name": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.19.1",
     "babel-cli": "^6.24.0",
     "babel-plugin-lightscript": "^0.5.1",
     "babel-preset-env": "^1.4.0"
