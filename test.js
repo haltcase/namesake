@@ -1,32 +1,81 @@
 import test from 'ava'
-import namesake from '.'
 import isAvailable from 'npm-name'
+import fs from 'fs'
+import {
+  differenceInMilliseconds,
+  subMonths,
+  subWeeks
+} from 'date-fns'
+
+import namesake from '.'
+import cache from './cache'
 
 // namesake's output is non-deterministic by design
 // these tests just try to ensure values are returned
 
 test('when given no input, provides random related terms', async t => {
-  let names = await namesake()
+  const names = await namesake()
   t.true(Array.isArray(names))
 })
 
 test('provides terms related to the given input', async t => {
-  let names = await namesake('car')
+  const names = await namesake('car')
   t.true(Array.isArray(names))
-  t.true(names.length > 30)
+  t.true(names.length > 10)
 })
 
 test('`options.limit` limits the number of returned values', async t => {
-  let names = await namesake('car', { limit: 5 })
+  const names = await namesake('car', { limit: 5 })
   t.true(Array.isArray(names))
   t.true(names.length === 5)
 })
 
 test('results are available npm package names', async t => {
-  let names = await namesake('car')
-  let availables = await Promise.all(names.map(isAvailable))
+  const names = await namesake('car')
+  const availables = await Promise.all(names.map(isAvailable))
 
   availables.forEach((available, i) => {
     t.true(available, `${names[i]} is available`)
   })
+})
+
+test('cache: downloads when the file does not exist', async t => {
+  const filepath = './test-file.html'
+  t.false(fs.existsSync(filepath))
+  await cache('example.com', filepath)
+  t.true(fs.existsSync(filepath))
+  fs.unlinkSync(filepath)
+})
+
+test('cache: downloads when file is > 1 month old', async t => {
+  const filepath = './test-old.html'
+  await cache('example.com', filepath)
+  t.true(fs.existsSync(filepath))
+
+  const mtime = subMonths(new Date(), 2)
+  fs.utimesSync(filepath, mtime, mtime)
+  const fileTime = new Date(fs.statSync(filepath).mtime)
+  t.true(differenceInMilliseconds(fileTime, mtime) < 1000)
+
+  await cache('example.com', filepath)
+  const modified = new Date(fs.statSync(filepath).mtime)
+  t.true(differenceInMilliseconds(modified, new Date()) < 1000)
+  fs.unlinkSync(filepath)
+})
+
+test('cache: does not download when file is < 1 month old', async t => {
+  const filepath = './test-current.html'
+  await cache('example.com', filepath)
+  t.true(fs.existsSync(filepath))
+
+  const mtime = subWeeks(new Date(), 2)
+  fs.utimesSync(filepath, mtime, mtime)
+  const fileTime = new Date(fs.statSync(filepath).mtime)
+  t.true(differenceInMilliseconds(fileTime, mtime) < 100)
+
+  await cache('example.com', filepath)
+  // modified time should not have changed
+  const sameTime = new Date(fs.statSync(filepath).mtime)
+  t.true(differenceInMilliseconds(fileTime, sameTime) < 100)
+  fs.unlinkSync(filepath)
 })
