@@ -44,16 +44,16 @@ const getAvailableNames = (keyword, max) =>
   )
 
 const shuffle = array => {
-	const clone = array.slice()
-	let { length } = array
+  const clone = array.slice()
+  let { length } = array
 
-	let i
-	while (length) {
-		i = floor(random() * length--)
-		;[clone[i], clone[length]] = [clone[length], clone[i]]
-	}
+  let i
+  while (length) {
+    i = floor(random() * length--)
+    ;[clone[i], clone[length]] = [clone[length], clone[i]]
+  }
 
-	return clone
+  return clone
 }
 
 module.exports = (keyword, { limit = 50 } = {}) => {
