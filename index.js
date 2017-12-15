@@ -2,14 +2,13 @@
 
 const { readFileSync } = require('fs')
 
-const got = require('got')
 const muse = require('datamuse')
 const isAvailable = require('npm-name')
 const slugify = require('slugify')
 
 const getCachedFile = require('./cache')
 
-const { floor, random, round } = Math
+const { floor, random } = Math
 
 const wordListUrl =
   'https://raw.githubusercontent.com/dwyl/english-words/master/words.txt'
