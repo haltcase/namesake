@@ -1,4 +1,4 @@
-# namesake &middot; [![Version](https://img.shields.io/npm/v/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![License](https://img.shields.io/npm/l/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![Travis CI](https://img.shields.io/travis/citycide/namesake.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/citycide/namesake) [![LightScript](https://img.shields.io/badge/written%20in-lightscript-00a99d.svg)](http://www.lightscript.org)
+# namesake &middot; [![Version](https://img.shields.io/npm/v/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![License](https://img.shields.io/npm/l/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![Travis CI](https://img.shields.io/travis/citycide/namesake.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/citycide/namesake) [![JavaScript Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square&maxAge=3600)](https://standardjs.com)
 
 > Find available & relevant npm package names for your project.
 
@@ -11,13 +11,12 @@ Supposedly:
 
 ¹ original quote is becoming lost to history / legend
 
-`namesake` can do absolutely nothing to help you with
-cache invalidation and off-by-one errors but it _can_
-help you with naming things. Being original is still
-up to you.
+`namesake` can do absolutely nothing to help you with cache invalidation and
+off-by-one errors but it _can_ help you with naming things. Being original is
+still up to you.
 
-Check out the [cli version](https://github.com/citycide/namesake-cli)
-if you want to use this easily at the command line.
+Check out the [command line frontend](https://github.com/citycide/namesake-cli)
+if you want to use this easily from your terminal.
 
 ## installation
 
@@ -30,19 +29,19 @@ npm i namesake
 ```js
 const namesake = require('namesake')
 
-namesake('car').then(names => {
+namesake('worth').then(names => {
   // `names` is an Array of available package names
   // they're all guaranteed to be available on npm at time of use
   console.log(names)
 })
 
 /*
-  [ 'accident',
-  'automaker',
-  'vehicles',
-  'cadillac',
-  'escalade',
-  'motorcar',
+[ 'dollar-bill',
+  'price-floor',
+  'cheaper',
+  'billion',
+  'richest',
+  'doable',
   ... ]
 */
 ```
@@ -61,21 +60,24 @@ namesake([keyword], [options = {}])
 
 | key       | type      | default | description                      |
 | :-------: | :-------: | :-----: | -------------------------------- |
-| `limit`   | `Number`  | 100¹    | Max number of results to return. |
+| `limit`   | `Number`  | 50¹     | Max number of results to return. |
 
 If `keyword` is not provided, a random word will be chosen to which
 all results will be related.
 
-¹ This default is imposed by the [API](http://www.datamuse.com/api/), which allows values up to 1000.
+¹ The max number of words returned isn't guaranteed to be equal to `limit`, since
+  the word list is pulled and then filtered based on npm name availability. The
+  absolute maximum is 1000, which is imposed by the [API](http://www.datamuse.com/api/).
+  `namesake` will always request more than your desired maximum to try to meet the
+  provided limit after checking for availability.
 
 > **Returns** `Promise<Array<String>>`
 
 ## see also
 
 - [`namesake-cli`](https://github.com/citycide/namesake-cli) - the command line frontend to this module
-- [LightScript](http://www.lightscript.org) - the compile-to-JS language this tool is written in, leveraging [Babel](https://babeljs.io)
 - [Datamuse API](http://www.datamuse.com/api/) - powers the related word search capabilities
-- [Set Get Go API](http://www.setgetgo.com/randomword/) - the random word API used in this module
+- [`english-words`](https://github.com/dwyl/english-words) - word list used here for random word selection
 
 ## contributing
 
@@ -83,7 +85,7 @@ Pull requests and any [issues](https://github.com/citycide/namesake/issues)
 found are always welcome.
 
 1. Fork the project, and preferably create a branch named something like `feat-make-better`
-2. Modify as needed, `src/index.lsc` being the source file
+2. Modify the source files as needed
 3. Make sure all tests continue to pass, and it never hurts to have more tests
 4. Push & pull request! :tada:
 
