@@ -16,7 +16,7 @@
   "homepage": "https://github.com/citycide/namesake",
   "bugs": "https://github.com/citycide/namesake/issues",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "keywords": [
     "name",
