@@ -1,0 +1,13 @@
+name: 'Update Issue Labels'
+
+on: [push]
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@1.0.0
+      - uses: crazy-max/ghaction-github-labeler@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
