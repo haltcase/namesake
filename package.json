@@ -21,6 +21,7 @@
   "files": [
     "cache.js",
     "index.js",
+    "index.d.ts",
     "word-list.txt"
   ],
   "scripts": {
