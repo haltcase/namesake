@@ -45,14 +45,14 @@ test('results are available npm package names', async t => {
 test('cache: downloads when the file does not exist', async t => {
   const filepath = './test-file.html'
   t.false(fs.existsSync(filepath))
-  await cache('example.com', filepath)
+  await cache('https://example.com', filepath)
   t.true(fs.existsSync(filepath))
   fs.unlinkSync(filepath)
 })
 
 test('cache: downloads when file is > 1 month old', async t => {
   const filepath = './test-old.html'
-  await cache('example.com', filepath)
+  await cache('https://example.com', filepath)
   t.true(fs.existsSync(filepath))
 
   const mtime = subMonths(new Date(), 2)
@@ -60,7 +60,7 @@ test('cache: downloads when file is > 1 month old', async t => {
   const fileTime = new Date(fs.statSync(filepath).mtime)
   t.true(differenceInMilliseconds(fileTime, mtime) < 1000)
 
-  await cache('example.com', filepath)
+  await cache('https://example.com', filepath)
   const modified = new Date(fs.statSync(filepath).mtime)
   t.true(differenceInMilliseconds(modified, new Date()) < 1000)
   fs.unlinkSync(filepath)
@@ -68,7 +68,7 @@ test('cache: downloads when file is > 1 month old', async t => {
 
 test('cache: does not download when file is < 1 month old', async t => {
   const filepath = './test-current.html'
-  await cache('example.com', filepath)
+  await cache('https://example.com', filepath)
   t.true(fs.existsSync(filepath))
 
   const mtime = subWeeks(new Date(), 2)
@@ -76,7 +76,7 @@ test('cache: does not download when file is < 1 month old', async t => {
   const fileTime = new Date(fs.statSync(filepath).mtime)
   t.true(differenceInMilliseconds(fileTime, mtime) < 100)
 
-  await cache('example.com', filepath)
+  await cache('https://example.com', filepath)
   // modified time should not have changed
   const sameTime = new Date(fs.statSync(filepath).mtime)
   t.true(differenceInMilliseconds(fileTime, sameTime) < 100)
