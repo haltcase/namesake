@@ -1,14 +1,17 @@
-import test from 'ava'
-import isAvailable from 'npm-name'
-import fs from 'fs'
-import {
+'use strict'
+
+const fs = require('fs')
+
+const test = require('ava')
+const {
   differenceInMilliseconds,
   subMonths,
   subWeeks
-} from 'date-fns'
+} = require('date-fns')
+const isAvailable = require('npm-name')
 
-import namesake from '.'
-import cache from './cache'
+const namesake = require('./index.js')
+const cache = require('./cache.js')
 
 // namesake's output is non-deterministic by design
 // these tests just try to ensure values are returned
