@@ -38,7 +38,7 @@ const getWordList = (starter, max = 500) =>
 const getAvailableNames = (keyword, max) =>
   getWordList(keyword, max).then(words =>
     Promise.all(words.map(isAvailable)).then(availables =>
-      words.filter((word, i) => availables[i])
+      words.filter((_, i) => availables[i])
     )
   )
 
