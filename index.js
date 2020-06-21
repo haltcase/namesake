@@ -31,7 +31,7 @@ const getWordList = (starter, max = 500) =>
     .then(word => muse.words({ ml: word, max }))
     .then(data =>
       data && data.length
-        ? data.map(o => slugify(o.word).toLowerCase())
+        ? data.map(o => slugify(o.word, { strict: true }).toLowerCase())
         : getWordList()
     )
 
