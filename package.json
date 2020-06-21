@@ -3,16 +3,9 @@
   "version": "2.0.0",
   "description": "Find available & relevant npm package names for your project.",
   "main": "index.js",
-  "author": {
-    "name": "Bo Lingen",
-    "email": "lingenbw@gmail.com",
-    "url": "https://github.com/citycide"
-  },
+  "author": "Bo Lingen <lingenbw@gmail.com> (https://github.com/citycide)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/citycide/namesake.git"
-  },
+  "repository": "https://github.com/citycide/namesake.git",
   "homepage": "https://github.com/citycide/namesake",
   "bugs": "https://github.com/citycide/namesake/issues",
   "engines": {
