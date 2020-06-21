@@ -20,7 +20,11 @@ if you want to use this easily from your terminal.
 
 ## installation
 
-```console
+```sh
+yarn add namesake
+
+# or
+
 npm i namesake
 ```
 
@@ -75,16 +79,16 @@ all results will be related.
 
 ## see also
 
-- [`namesake-cli`](https://github.com/citycide/namesake-cli) - the command line frontend to this module
-- [Datamuse API](http://www.datamuse.com/api/) - powers the related word search capabilities
-- [`english-words`](https://github.com/dwyl/english-words) - word list used here for random word selection
+- [`namesake-cli`](https://github.com/citycide/namesake-cli) &ndash; the command line frontend to this module
+- [Datamuse API](http://www.datamuse.com/api/) &ndash; powers the related word search capabilities
+- [`english-words`](https://github.com/dwyl/english-words) &ndash; word list used here for random word selection
 
 ## contributing
 
 Pull requests and any [issues](https://github.com/citycide/namesake/issues)
 found are always welcome.
 
-1. Fork the project, and preferably create a branch named something like `feat-make-better`
+1. Fork the project, and preferably create a branch named something like `feat/make-better`
 2. Modify the source files as needed
 3. Make sure all tests continue to pass, and it never hurts to have more tests
 4. Push & pull request! :tada:
