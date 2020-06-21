@@ -30,7 +30,7 @@ test('provides terms related to the given input', async t => {
 test('`options.limit` limits the number of returned values', async t => {
   const names = await namesake('car', { limit: 5 })
   t.true(Array.isArray(names))
-  t.true(names.length === 5)
+  t.is(names.length, 5)
 })
 
 test('results are available npm package names', async t => {
