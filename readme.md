@@ -30,7 +30,7 @@ npm i namesake
 const namesake = require('namesake')
 
 namesake('worth').then(names => {
-  // `names` is an Array of available package names
+  // `names` is an array of available package names
   // they're all guaranteed to be available on npm at time of use
   console.log(names)
 })
@@ -49,18 +49,18 @@ namesake('worth').then(names => {
 ## api
 
 ### namesake
-```js
-namesake([keyword], [options = {}])
+```ts
+namesake(keyword?: string, options = {})
 ```
 
 > **Arguments**
 
-- `{String} [keyword]`: optional keyword to find related terms
-- `{Object} [options = {}]`
+* `{string} [keyword]`: optional keyword to find related terms
+* `{NamesakeOptions} [options = {}]`:
 
 | key       | type      | default | description                      |
 | :-------: | :-------: | :-----: | -------------------------------- |
-| `limit`   | `Number`  | 50¹     | Max number of results to return. |
+| `limit`   | `number`  | 50¹     | Max number of results to return. |
 
 If `keyword` is not provided, a random word will be chosen to which
 all results will be related.
@@ -71,7 +71,7 @@ all results will be related.
   `namesake` will always request more than your desired maximum to try to meet the
   provided limit after checking for availability.
 
-> **Returns** `Promise<Array<String>>`
+> **Returns** `Promise<string[]>`
 
 ## see also
 
