@@ -1,4 +1,4 @@
-# namesake &middot; [![Version](https://img.shields.io/npm/v/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![License](https://img.shields.io/npm/l/namesake.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/namesake) [![Travis CI](https://img.shields.io/travis/citycide/namesake.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/citycide/namesake) [![JavaScript Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square&maxAge=3600)](https://standardjs.com)
+# namesake &middot; [![Version](https://flat.badgen.net/npm/v/namesake)](https://www.npmjs.com/package/namesake) [![License](https://flat.badgen.net/npm/license/namesake)](https://www.npmjs.com/package/namesake)
 
 > Find available & relevant npm package names for your project.
 
