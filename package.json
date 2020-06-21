@@ -11,6 +11,10 @@
   "engines": {
     "node": ">=10"
   },
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.js"
+  },
   "keywords": [
     "name",
     "finder",
@@ -22,6 +26,8 @@
     "cache.js",
     "index.js",
     "index.d.ts",
+    "index.mjs",
+    "index.mjs.d.ts",
     "word-list.txt"
   ],
   "scripts": {
