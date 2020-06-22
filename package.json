@@ -27,8 +27,7 @@
     "index.js",
     "index.d.ts",
     "index.mjs",
-    "index.mjs.d.ts",
-    "word-list.txt"
+    "index.mjs.d.ts"
   ],
   "scripts": {
     "lint": "standardx \"*.{js,mjs}\" | snazzy",
