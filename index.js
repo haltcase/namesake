@@ -21,6 +21,9 @@ const getRandomWord = () =>
     .then(file => readFileSync(file, "utf8").split("\n"))
     .then(randomElement)
 
+const toPackageName = word =>
+  slugify(word, { strict: true }).toLowerCase()
+
 const ensureWord = word =>
   word && typeof word === "string"
     ? Promise.resolve(word)
@@ -31,7 +34,8 @@ const getWordList = (starter, max = 500) =>
     .then(word => muse.words({ ml: word, max }))
     .then(data =>
       data && data.length
-        ? data.map(o => slugify(o.word, { strict: true }).toLowerCase())
+        ? data.map(o => toPackageName(o.word))
+        // try again if we received no data
         : getWordList()
     )
 
