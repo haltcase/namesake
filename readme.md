@@ -31,21 +31,21 @@ npm i namesake
 ## usage
 
 ```js
-const namesake = require('namesake')
+import namesake from "namesake"
 
-namesake('worth').then(names => {
+namesake("worth").then(names => {
   // `names` is an array of available package names
   // they're all guaranteed to be available on npm at time of use
   console.log(names)
 })
 
 /*
-[ 'dollar-bill',
-  'price-floor',
-  'cheaper',
-  'billion',
-  'richest',
-  'doable',
+[ "dollar-bill",
+  "price-floor",
+  "cheaper",
+  "billion",
+  "richest",
+  "doable",
   ... ]
 */
 ```
