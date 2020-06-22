@@ -1,28 +1,28 @@
-'use strict'
+"use strict"
 
-const { readFileSync } = require('fs')
+const { readFileSync } = require("fs")
 
-const muse = require('datamuse')
-const isAvailable = require('npm-name')
-const slugify = require('slugify')
+const muse = require("datamuse")
+const isAvailable = require("npm-name")
+const slugify = require("slugify")
 
-const getCachedFile = require('./cache')
+const getCachedFile = require("./cache")
 
 const { floor, random } = Math
 
 const wordListUrl =
-  'https://raw.githubusercontent.com/dwyl/english-words/master/words.txt'
+  "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
 
 const randomElement = array =>
   array[floor(random() * array.length)]
 
 const getRandomWord = () =>
-  getCachedFile(wordListUrl, './word-list.txt')
-    .then(file => readFileSync(file, 'utf8').split('\n'))
+  getCachedFile(wordListUrl, "./word-list.txt")
+    .then(file => readFileSync(file, "utf8").split("\n"))
     .then(randomElement)
 
 const ensureWord = word =>
-  word && typeof word === 'string'
+  word && typeof word === "string"
     ? Promise.resolve(word)
     : getRandomWord().then(ensureWord)
 

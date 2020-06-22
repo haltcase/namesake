@@ -31,8 +31,9 @@
     "word-list.txt"
   ],
   "scripts": {
-    "lint": "standard \"*.js\" | snazzy",
-    "test": "ava"
+    "lint": "standardx \"*.{js,mjs}\" | snazzy",
+    "test": "ava",
+    "prepublishOnly": "npm run lint && npm test"
   },
   "dependencies": {
     "datamuse": "^1.0.5",
@@ -44,6 +45,6 @@
     "ava": "^3.9.0",
     "date-fns": "^2.14.0",
     "snazzy": "^8.0.0",
-    "standard": "^14.3.4"
+    "standardx": "^5.0.0"
   }
 }

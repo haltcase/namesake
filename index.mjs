@@ -1,2 +1,2 @@
-import namesake from './index.js'
+import namesake from "./index.js"
 export default namesake

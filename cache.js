@@ -1,9 +1,9 @@
-'use strict'
+"use strict"
 
-const { existsSync, statSync, writeFileSync } = require('fs')
-const { join } = require('path')
+const { existsSync, statSync, writeFileSync } = require("fs")
+const { join } = require("path")
 
-const got = require('got')
+const got = require("got")
 
 const oneMonth = 2.628e9
 
