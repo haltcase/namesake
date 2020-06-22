@@ -1,3 +1,13 @@
+## [`3.1.0`](https://github.com/citycide/namesake/compare/v3.0.0...v3.1.0) (2020-06-22)
+
+
+###### FEATURES
+
+* exclude word list on install to reduce package size ([3c33756](https://github.com/citycide/namesake/commit/3c33756))
+
+
+---
+
 ## [`3.0.0`](https://github.com/citycide/namesake/compare/v2.0.0...v3.0.0) (2020-06-22)
 
 
