@@ -1,6 +1,6 @@
 {
   "name": "namesake",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Find available & relevant npm package names for your project.",
   "main": "index.js",
   "author": "Bo Lingen <lingenbw@gmail.com> (https://github.com/citycide)",
